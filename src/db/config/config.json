@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "minesr_105284",
+    "password": "FWuROikR",
+    "database": "minesr_105284",
+    "host": "178.32.113.35",
+    "port": "3306",
+    "dialect": "mysql"
+  }
+}

@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "email": {
+            "type": "string",
+            "format": "email",
+            "minLength": 1,
+            "maxLength": 50
+        },
+        "password": {
+            "type": "string",
+            "format": "password",
+            "minLength": 1,
+            "maxLength": 50
+        },
+        "username": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 16
+        },
+        "phoneNumber": {
+            "type": "string",
+            "pattern": "^\\+[0-9]{7,15}$"
+        },
+        "countryCode": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$",
+            "minLength": 2,
+            "maxLength": 2
+        }
+    },
+    "required": [ "email", "password", "username"],
+    "additionalProperties": false
+}

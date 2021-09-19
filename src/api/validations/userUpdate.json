@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "username": {
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 16
+        },
+        "discordId": {
+            "type": ["string", "null"],
+            "minLength": 2,
+            "maxLength": 32
+        },
+        "phoneNumber": {
+            "type": ["string", "null"],
+            "pattern": "^\\+[0-9]{7,15}$"
+        },
+        "description": {
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 144
+        },
+        "birthday": {
+            "type": ["string", "null"],
+            "format": "date"
+        }
+    },
+    "required": [ "username", "discordId", "phoneNumber", "description", "birthday"],
+    "additionalProperties": false
+}
