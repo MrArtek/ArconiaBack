@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const Ajv = require('ajv');
 
 const db = require('../../db');
-const { validateToken } = require('../../middlewares/token');
+const { validateToken } = require('../middlewares/token');
 const { userUpdateSchema } = require('../validations');
 const { generateError, generateResponse, generateAjvError } = require('../utils/generateResponse');
 
@@ -14,11 +14,7 @@ require("ajv-formats")(ajv);
 //Validation
 const userUpdateValidate = ajv.compile(userUpdateSchema);
 
-router.get('/token', validateToken, async (req, res) => {
-    return generateResponse(res, StatusCodes.OK, {});
-});
-
-router.get('/data', validateToken, async (req, res) => {
+router.get('/', validateToken, async (req, res) => {
     const { uuid } = jwt.decode(req.headers.authorization);
 
     if (!uuid) return generateError(res, StatusCodes.INTERNAL_SERVER_ERROR, 'cannot get a valid user uuid !');

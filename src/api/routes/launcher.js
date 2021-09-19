@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { StatusCodes } = require('http-status-codes');
-const { validateToken, validateUser } = require('../../middlewares/launcher')
+const { validateToken, validateUser } = require('../middlewares/launcher')
 const db = require('../../db');
 const { v4: uuidV4 } = require('uuid');
 

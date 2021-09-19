@@ -1,12 +1,12 @@
-const { generateError, generateAjvError } = require('../api/utils/generateResponse');
+const { generateError, generateAjvError } = require('../utils/generateResponse');
 const bcrypt = require('bcrypt');
-const db = require('../db');
+const db = require('../../db');
 const Ajv = require('ajv');
 
 const ajv = new Ajv();
 require("ajv-formats")(ajv);
 
-const { verifySchema } = require('../api/validations');
+const { verifySchema } = require('../validations');
 
 const verifyValidate = ajv.compile(verifySchema)
 

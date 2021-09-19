@@ -5,9 +5,7 @@ const website = 'http://localhost:3000';
 require('dotenv').config()
 
 const PORT = 8000 | process.env.PORT;
-const login = require('./api/routes/auth');
-const launcher = require('./api/routes/launcher');
-const user = require('./api/routes/user');
+const { token, auth, launcher, user } = require('./api/routes');
 const app = express();
 
 //Body Parser
@@ -15,7 +13,9 @@ app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 
 app.use(cors({origin: website}));
-app.use('/api/auth', login);
+app.use('/api/auth', auth);
+
+app.use('/api/token', token);
 
 app.use('/api/user', user);
 
